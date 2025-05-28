@@ -1,0 +1,308 @@
+/* Color Palette :: Primary: #0B57D0; Secondary: #00A98F; AccentAction: #D93025; AccentPositive: #1E8E3E; BackgroundPage: #F8F9FA; BackgroundSurface: #FFFFFF; TextPrimary: #1F2937; TextSecondary: #4B5563; BorderSubtle: #D1D5DB; ShadowColor: rgba(0,0,0,0.08); */
+
+:root {
+    --primary-color: #0B57D0;
+    --secondary-color: #00A98F;
+    --accent-action-color: #D93025;
+    --accent-positive-color: #1E8E3E;
+    --background-page-color: #F8F9FA;
+    --background-surface-color: #FFFFFF;
+    --text-primary-color: #1F2937;
+    --text-secondary-color: #4B5563;
+    --border-subtle-color: #D1D5DB;
+    --shadow-color: rgba(0,0,0,0.08);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-page-color);
+    color: var(--text-primary-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the wrapper takes up at least the full viewport height */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background-surface-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-color), 0 10px 20px rgba(0,0,0,0.07);
+}
+
+/* Header */
+.app-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Navigation */
+.app-nav {
+    background-color: var(--background-surface-color);
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-subtle-color);
+    box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.app-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.app-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.app-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--secondary-color);
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-secondary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-subtle-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    color: var(--text-primary-color);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group select[multiple] {
+    height: 150px;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #0A50A0; /* Darker shade of primary */
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #00806A;
+}
+
+.btn-action {
+    background-color: var(--accent-action-color);
+    color: white;
+}
+
+.btn-action:hover {
+    background-color: #B0241B;
+}
+
+.btn-small {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.8rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle-color);
+}
+
+th {
+    font-weight: 600;
+    color: var(--text-secondary-color);
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.pagination button {
+    margin: 0 0.5rem;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--background-surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px var(--shadow-color), 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary-color);
+}
+
+.close-button:hover {
+    color: var(--text-primary-color);
+}
+
+/* Error Messages */
+.error-message {
+    color: var(--accent-action-color);
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--background-surface-color);
+    border-top: 1px solid var(--border-subtle-color);
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+/* List Styling (for future use in displaying lists of data) */
+ul.data-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.data-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-subtle-color);
+}
+
+ul.data-list li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .app-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .app-nav li {
+        margin-bottom: 0.5rem;
+    }
+}

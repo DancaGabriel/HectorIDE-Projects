@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Document Management</title>
+    <style>
+        /* Color Palette :: Primary: #2962FF; Secondary: #4CAF50; Accent: #FF5252; Background: #F5F5F5; Text: #333333 */
+
+        :root {
+            --primary-color: #2962FF;
+            --secondary-color: #4CAF50;
+            --accent-color: #FF5252;
+            --background-color: #F5F5F5;
+            --text-color: #333333;
+            --font-family: 'Roboto', sans-serif; /* Consistent font */
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white; /* White container */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .app-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+        }
+
+        .app-header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .app-nav {
+            background-color: #EEE; /* Light grey */
+            padding: 1rem;
+            border-bottom: 1px solid #DDD;
+        }
+
+        .app-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .app-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .app-nav a:hover {
+            background-color: #DDD;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            padding: 0.75rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            resize: vertical; /* Only allow vertical resizing of textarea */
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(41, 98, 255, 0.3); /* Subtle glow effect */
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            margin-top: 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #388E3C; /* Darker green */
+        }
+
+        .error-message {
+            color: var(--accent-color);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .app-footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #EEE; /* Light grey */
+            border-top: 1px solid #DDD;
+            margin-top: auto;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <header class="app-header">
+            <h1>TaskFlow - Document Management</h1>
+        </header>
+
+        <nav class="app-nav">
+            <ul>
+                <li><a href="#update-document">Update Document</a></li>
+                <li><a href="#api-documentation">API Documentation</a></li>
+                <li><a href="#data-model-changes">Data Model Changes</a></li>
+            </ul>
+        </nav>
+
+        <main class="container">
+            <section id="update-document">
+                <h2>Update Document</h2>
+                <form id="document-form">
+                    <label for="document_content">Document Content (Markdown)</label>
+                    <textarea id="document_content" name="document_content" rows="15"
+                              placeholder="# Document Title\n\nThis is the main content of your document. Use Markdown formatting."></textarea>
+
+                    <label for="commit_message">Commit Message</label>
+                    <input type="text" id="commit_message" name="commit_message" placeholder="e.g., 'Updated document content'">
+
+                    <label for="api_documentation">API Documentation Updates (Optional)</label>
+                    <textarea id="api_documentation" name="api_documentation" rows="5"
+                              placeholder="Changes to API endpoints (OpenAPI/Swagger format)"></textarea>
+
+                    <label for="data_model_changes">Data Model Changes Description (Optional)</label>
+                    <textarea id="data_model_changes" name="data_model_changes" rows="3"
+                              placeholder="Description of changes required for the data model"></textarea>
+
+                    <label for="perform_db_migration">Perform Database Migration?</label>
+                    <input type="checkbox" id="perform_db_migration" name="perform_db_migration">
+
+                     <label for="update_api_documentation">Update API Documentation?</label>
+                    <input type="checkbox" id="update_api_documentation" name="update_api_documentation">
+
+                    <button type="submit">Update Document</button>
+                    <div id="message" class="success-message" style="display:none;"></div>
+                    <div id="error" class="error-message" style="display:none;"></div>
+
+                </form>
+            </section>
+
+            <section id="api-documentation">
+                <h2>Example API Documentation (Current State)</h2>
+                <pre><code id="current-api-docs">
+openapi: 3.0.0
+info:
+  title: TaskFlow API
+  version: 1.0.0
+paths:
+  /tasks:
+    get:
+      summary: List all tasks
+      responses:
+        '200':
+          description: A list of tasks.
+    post:
+      summary: Create a new task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Task created successfully.
+                </code></pre>
+            </section>
+
+            <section id="data-model-changes">
+                <h2>Pending Data Model Changes</h2>
+                <p>Currently, there are no pending data model changes.</p>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 TaskFlow. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('document-form');
+            const messageDiv = document.getElementById('message');
+            const errorDiv = document.getElementById('error');
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const formData = {
+                    document_content: document.getElementById('document_content').value,
+                    api_documentation: document.getElementById('api_documentation').value,
+                    data_model_changes: document.getElementById('data_model_changes').value,
+                    commit_message: document.getElementById('commit_message').value,
+                    perform_db_migration: document.getElementById('perform_db_migration').checked,
+                    update_api_documentation: document.getElementById('update_api_documentation').checked
+                };
+
+                // Simulate sending the data to the backend API (replace with actual API endpoint)
+                fetch('/document/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    messageDiv.textContent = data.message;
+                    messageDiv.style.display = 'block';
+                    errorDiv.style.display = 'none';
+                    form.reset(); //Clear form after submission
+
+                     // Simulate updating API documentation on success (replace with getting from backend)
+                     document.getElementById('current-api-docs').textContent = 'Updated API Documentation will be visible after backend processing.';
+
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 3000);
+                })
+                .catch(error => {
+                    errorDiv.textContent = 'An error occurred: ' + error.message;
+                    errorDiv.style.display = 'block';
+                    messageDiv.style.display = 'none';
+                    console.error('There was an error!', error);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Your Agile Task Management Platform</title>
+    <meta name="description" content="TaskFlow: The ultimate platform for managing tasks, collaborating with teams, and boosting productivity with agile methodologies.">
+    <meta name="keywords" content="task management, project management, agile, scrum, kanban, team collaboration, productivity, workflow, tasks, projects">
+
+    <!-- Favicon (replace with your own) -->
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts (example - adjust as needed) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet (linking to the CSS file) -->
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- SEO & Accessibility Enhancements -->
+    <link rel="canonical" href="https://www.example.com/">  <!-- Replace with your actual domain -->
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="TaskFlow - Streamline Your Workflow">
+    <meta property="og:description" content="Manage tasks, collaborate seamlessly, and boost productivity with TaskFlow.">
+    <meta property="og:image" content="static/images/taskflow_og_image.png"> <!-- Replace with your OG image -->
+    <meta property="og:url" content="https://www.example.com/"> <!-- Replace with your domain -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TaskFlow - Agile Task Management">
+    <meta name="twitter:description" content="TaskFlow: Your solution for efficient task and project management.">
+    <meta name="twitter:image" content="static/images/taskflow_twitter_image.png"> <!-- Replace with your Twitter image -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- ARIA attributes for screen reader compatibility -->
+    <!-- Consider adding more ARIA attributes throughout the HTML based on the specific elements used -->
+
+    <!-- Conditional Styles for Older Browsers (Example) -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#0B57D0"> <!-- Adjust based on your primary color -->
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="static/images/logo.png" alt="TaskFlow Logo" class="logo">
+                <span class="logo-text">TaskFlow</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/tasks">Tasks</a></li>
+                    <li><a href="/team">Team</a></li>
+                    <li><a href="/reports">Reports</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropdown-button">My Account</button>
+                            <div class="dropdown-content">
+                                <a href="/profile">Profile</a>
+                                <a href="/settings">Settings</a>
+                                <a href="/logout">Logout</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <!-- Content will be inserted here by other templates -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Streamline Your Workflow with TaskFlow</h1>
+                <p>TaskFlow is the ultimate platform for managing tasks, collaborating with teams, and boosting productivity.</p>
+                <a href="/signup" class="cta-button">Get Started Free</a>
+            </div>
+            <div class="hero-image">
+                <img src="static/images/hero-image.svg" alt="Task Management Illustration" loading="lazy">
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="static/images/feature-kanban.svg" alt="Kanban Boards Icon" loading="lazy">
+                    <h3>Kanban Boards</h3>
+                    <p>Visualize your workflow and manage tasks efficiently with intuitive Kanban boards.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="static/images/feature-collaboration.svg" alt="Team Collaboration Icon" loading="lazy">
+                    <h3>Team Collaboration</h3>
+                    <p>Seamlessly collaborate with your team, share files, and communicate in real-time.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="static/images/feature-reporting.svg" alt="Progress Reporting Icon" loading="lazy">
+                    <h3>Progress Reporting</h3>
+                    <p>Track your team's progress, identify bottlenecks, and generate comprehensive reports.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="static/images/feature-automation.svg" alt="Automation Icon" loading="lazy">
+                    <h3>Automation</h3>
+                    <p>Automate repetitive tasks, set up triggers, and streamline your workflows with powerful automation features.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="static/images/feature-integration.svg" alt="Integrations Icon" loading="lazy">
+                    <h3>Integrations</h3>
+                    <p>Connect TaskFlow with your favorite tools, including Slack, Google Drive, and more.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="static/images/feature-mobile.svg" alt="Mobile Access Icon" loading="lazy">
+                    <h3>Mobile Access</h3>
+                    <p>Access TaskFlow on the go with our mobile app for iOS and Android.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <h2>What Our Users Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <img src="static/images/user-1.jpg" alt="User 1" class="testimonial-avatar" loading="lazy">
+                    <p>"TaskFlow has revolutionized our team's workflow. We're more organized and productive than ever before."</p>
+                    <cite>Sarah Johnson, Marketing Manager</cite>
+                </div>
+                <div class="testimonial">
+                    <img src="static/images/user-2.jpg" alt="User 2" class="testimonial-avatar" loading="lazy">
+                    <p>"The Kanban boards are incredibly intuitive and easy to use. I can now easily visualize my projects and track my progress."</p>
+                    <cite>David Lee, Project Lead</cite>
+                </div>
+                <div class="testimonial">
+                    <img src="static/images/user-3.jpg" alt="User 3" class="testimonial-avatar" loading="lazy">
+                    <p>"TaskFlow has helped us streamline our communication and collaboration. We're now able to work more effectively as a team."</p>
+                    <cite>Emily Chen, Team Coordinator</cite>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <h2>Pricing Plans</h2>
+            <div class="pricing-plans">
+                <div class="pricing-plan">
+                    <h3>Free</h3>
+                    <p class="price">$0/month</p>
+                    <ul>
+                        <li>Up to 5 users</li>
+                        <li>Basic task management</li>
+                        <li>Limited storage</li>
+                    </ul>
+                    <a href="/signup" class="cta-button">Sign Up</a>
+                </div>
+                <div class="pricing-plan recommended">
+                    <h3>Pro</h3>
+                    <p class="price">$19/month</p>
+                    <ul>
+                        <li>Up to 20 users</li>
+                        <li>Advanced task management</li>
+                        <li>Unlimited storage</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="/signup" class="cta-button">Get Started</a>
+                </div>
+                <div class="pricing-plan">
+                    <h3>Enterprise</h3>
+                    <p class="price">Contact us</p>
+                    <ul>
+                        <li>Unlimited users</li>
+                        <li>Customized features</li>
+                        <li>Dedicated support</li>
+                        <li>Onboarding assistance</li>
+                    </ul>
+                    <a href="/contact" class="cta-button">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <p>Have any questions? Contact our support team.</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="/terms">Terms of Service</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/contact">Contact Us</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><img src="static/images/facebook.svg" alt="Facebook Icon"></a>
+                <a href="#" aria-label="Twitter"><img src="static/images/twitter.svg" alt="Twitter Icon"></a>
+                <a href="#" aria-label="LinkedIn"><img src="static/images/linkedin.svg" alt="LinkedIn Icon"></a>
+            </div>
+            <p>&copy; 2025 TaskFlow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript (linking to the JS file) -->
+    <script src="static/js/app.js"></script>
+
+</body>
+</html>

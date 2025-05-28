@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Post Details</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>
+      /* Specific styles for the post details page */
+      .post-detail-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: var(--background-surface-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px var(--shadow-color), 0 10px 20px rgba(0,0,0,0.07);
+      }
+
+      .post-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: var(--text-primary-color);
+      }
+
+      .post-meta {
+        font-size: 0.9rem;
+        color: var(--text-secondary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .post-content {
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        color: var(--text-primary-color);
+      }
+
+      .comment-section {
+        margin-top: 3rem;
+      }
+
+      .comment-form {
+        margin-bottom: 2rem;
+      }
+
+      .comment {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+        background-color: rgba(0, 0, 0, 0.03);
+      }
+
+      .comment-author {
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+      }
+
+      .comment-date {
+        font-size: 0.8rem;
+        color: var(--text-secondary-color);
+        margin-left: 0.5rem;
+      }
+
+      .comment-text {
+        line-height: 1.6;
+        color: var(--text-primary-color);
+      }
+
+      .edit-delete-buttons {
+        margin-top: 1rem;
+        text-align: right;
+      }
+
+      .edit-delete-buttons button {
+        margin-left: 0.5rem;
+      }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>TaskFlow</h1>
+    </header>
+
+    <nav class="app-nav">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Posts</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+
+    <main class="app-main container">
+        <section class="post-detail-container">
+            <h2 class="post-title">Finalize Q3 Marketing Strategy Document & Stakeholder Review</h2>
+            <div class="post-meta">
+                <span>By <a href="#">Dr. Eleanor Vance</a></span>
+                <span>Published on November 15, 2023</span>
+                <span>Categories: Marketing, Strategy</span>
+            </div>
+
+            <div class="post-content">
+                <p>The Q3 marketing strategy document requires finalization, incorporating feedback from the senior leadership team and key stakeholders. This includes a comprehensive review of budget allocation across different channels, refinement of key performance indicators (KPIs), and alignment with the overall business objectives for the quarter.</p>
+
+                <p>Specifically, the following steps need to be completed:</p>
+                <ol>
+                    <li>Incorporate feedback from the last stakeholder meeting on channel optimization.</li>
+                    <li>Refine the budget allocation, ensuring optimal ROI for each marketing initiative.</li>
+                    <li>Finalize the KPIs and set realistic targets for the quarter.</li>
+                    <li>Obtain final sign-off from the CMO and other key stakeholders.</li>
+                    <li>Distribute the finalized document to the marketing team and relevant departments.</li>
+                </ol>
+
+                <p>A detailed presentation summarizing the strategy will be prepared for the all-hands meeting next week.</p>
+
+                <p>The success of this strategy is crucial for achieving our Q3 revenue goals and strengthening our market position. Continuous monitoring and adaptation will be essential to ensure that we remain on track.</p>
+            </div>
+
+            <div class="edit-delete-buttons">
+                <button class="btn-secondary">Edit Post</button>
+                <button class="btn-action">Delete Post</button>
+            </div>
+
+            <section class="comment-section">
+                <h3>Comments</h3>
+                <div class="comment-form">
+                    <h4>Add a Comment</h4>
+                    <form id="add-comment-form">
+                        <div class="form-group">
+                            <label for="comment_text">Comment:</label>
+                            <textarea id="comment_text" name="comment_text" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Submit Comment</button>
+                    </form>
+                </div>
+
+                <div id="comment-list">
+                    <div class="comment">
+                        <div class="comment-author">Mr. Samuel Green <span class="comment-date">November 16, 2023</span></div>
+                        <div class="comment-text">Great initiative! Looking forward to seeing the finalized document.</div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-author">AI Assistant <span class="comment-date">November 15, 2023</span></div>
+                        <div class="comment-text">I have generated a summary of the document and identified key areas for improvement. Please review.</div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2025 TaskFlow. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const addCommentForm = document.getElementById('add-comment-form');
+            const commentList = document.getElementById('comment-list');
+
+            addCommentForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const commentText = document.getElementById('comment_text').value;
+
+                // Create a new comment element
+                const newComment = document.createElement('div');
+                newComment.classList.add('comment');
+
+                const commentAuthor = document.createElement('div');
+                commentAuthor.classList.add('comment-author');
+                commentAuthor.textContent = 'New User ';
+
+                const commentDate = document.createElement('span');
+                commentDate.classList.add('comment-date');
+                commentDate.textContent = new Date().toLocaleDateString();
+                commentAuthor.appendChild(commentDate);
+
+                const commentTextDiv = document.createElement('div');
+                commentTextDiv.classList.add('comment-text');
+                commentTextDiv.textContent = commentText;
+
+                newComment.appendChild(commentAuthor);
+                newComment.appendChild(commentTextDiv);
+
+                // Add the new comment to the comment list
+                commentList.appendChild(newComment);
+
+                // Clear the comment form
+                document.getElementById('comment_text').value = '';
+
+                console.log('Comment submitted:', commentText);
+
+                // Optionally, send the comment to the server (API call) here
+                // fetch('/api/comments', { ... })
+            });
+        });
+    </script>
+</body>
+</html>
